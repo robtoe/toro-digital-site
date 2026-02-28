@@ -109,14 +109,28 @@
 <body>
 
     <header>
-        <h1>Toro Games</h1>
+        <h1>Toro Digital</h1>
     </header>
 
     <div class="container">
 
-        <video autoplay loop muted playsinline class="hero-image">
-            <source src="galactic-snackers-anim.mp4" type="video/mp4">
-        </video>
+        <div class="hero-wrapper">
+            <img src="galactic-icon-static.png" class="hero-image" id="heroImage">
+
+            <video autoplay loop muted playsinline class="hero-image" id="heroVideo" style="display:none;">
+                <source src="galactic-icon.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <script>
+            const video = document.getElementById("heroVideo");
+            const image = document.getElementById("heroImage");
+
+            video.addEventListener("canplaythrough", () => {
+                image.style.display = "none";
+                video.style.display = "block";
+            });
+        </script>
 
         <h2>Coming Soon</h2>
 
